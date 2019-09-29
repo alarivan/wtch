@@ -1,18 +1,14 @@
 import React, { ReactNode } from "react"
-import styled from "styled-components"
+import { ThemeProvider } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import GlobalStyles from "./styled/global"
+import theme from "./styled/theme"
 import Header from "./header"
+import Footer from "./footer"
 
 type Props = {
   children: ReactNode
 }
-
-const StyledContainer = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0 1.0875rem 1.45rem;
-`
 
 const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,18 +22,14 @@ const Layout: React.FC<Props> = ({ children }) => {
   `)
 
   return (
-    <>
-      <GlobalStyles />
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <StyledContainer>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </StyledContainer>
-    </>
+        <Footer />
+      </>
+    </ThemeProvider>
   )
 }
 
