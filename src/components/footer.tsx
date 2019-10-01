@@ -59,13 +59,13 @@ const Footer: React.FC = () => {
       <FooterContainer>
         <FooterSection>
           <h2>Social Media</h2>
-          <a href="http://twitter.com">
+          <a href="http://twitter.com" title="Twitter">
             <SocialIcon icon={faTwitter} />
           </a>
-          <a href="http://facebook.com">
+          <a href="http://facebook.com" title="Facebook">
             <SocialIcon icon={faFacebook} />
           </a>
-          <a href="http://youtube.com">
+          <a href="http://youtube.com" title="YouTube">
             <SocialIcon icon={faYoutube} />
           </a>
         </FooterSection>
