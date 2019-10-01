@@ -32,9 +32,12 @@ const Nav = styled.ul`
   justify-content: center;
 `
 const NavItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
   a {
     cursor: pointer;
-    padding: 0 1rem;
 
     &:hover {
       color: #555;
